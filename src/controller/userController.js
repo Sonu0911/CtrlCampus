@@ -237,8 +237,8 @@ const UserDeleted = async function(req, res) {
 
       
  
-        const UserDeleted = await userModel.findOneAndUpdate({ _id: userId }, { $set: { isDeleted: true, deletedAt: Date.now() } }, { new: true })
-        return res.status(200).send({ status: true, msg: "User is deleted", data: UserDeleted })
+        const userDeleted = await userModel.findOneAndUpdate({ _id: userId }, { $set: { isDeleted: true, deletedAt: Date.now() } }, { new: true })
+        return res.status(200).send({ status: true, msg: "User is deleted", data: userDeleted })
 
     } catch (err) {
         res.status(500).send({ status: false, msg: err.message });
